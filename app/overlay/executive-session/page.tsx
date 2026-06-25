@@ -71,28 +71,10 @@ export default function ExecutiveSessionOverlay() {
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '6px', backgroundColor: '#ffbc0f' }} />
 
       {/* Corner accents */}
-      {([
-        { pos: { top: '24px',    left:  '32px' }, t: true,  b: false, l: true,  r: false },
-        { pos: { top: '24px',    right: '32px' }, t: true,  b: false, l: false, r: true  },
-        { pos: { bottom: '24px', left:  '32px' }, t: false, b: true,  l: true,  r: false },
-        { pos: { bottom: '24px', right: '32px' }, t: false, b: true,  l: false, r: true  },
-      ] as const).map(({ pos, t, b, l, r }, i) => (
-        <div
-          key={i}
-          style={{
-            position: 'absolute',
-            width: '50px',
-            height: '50px',
-            ...pos,
-            borderTopWidth:    t ? '3px' : 0,
-            borderBottomWidth: b ? '3px' : 0,
-            borderLeftWidth:   l ? '3px' : 0,
-            borderRightWidth:  r ? '3px' : 0,
-            borderStyle: 'solid',
-            borderColor: 'rgba(255,188,15,0.5)',
-          }}
-        />
-      ))}
+      <div style={{ position: 'absolute', width: '50px', height: '50px', top: '24px', left: '32px', borderTop: '3px solid rgba(255,188,15,0.5)', borderLeft: '3px solid rgba(255,188,15,0.5)' }} />
+      <div style={{ position: 'absolute', width: '50px', height: '50px', top: '24px', right: '32px', borderTop: '3px solid rgba(255,188,15,0.5)', borderRight: '3px solid rgba(255,188,15,0.5)' }} />
+      <div style={{ position: 'absolute', width: '50px', height: '50px', bottom: '24px', left: '32px', borderBottom: '3px solid rgba(255,188,15,0.5)', borderLeft: '3px solid rgba(255,188,15,0.5)' }} />
+      <div style={{ position: 'absolute', width: '50px', height: '50px', bottom: '24px', right: '32px', borderBottom: '3px solid rgba(255,188,15,0.5)', borderRight: '3px solid rgba(255,188,15,0.5)' }} />
 
       {/* Logo top */}
       <div style={{ position: 'absolute', top: '28px', left: '50%', transform: 'translateX(-50%)' }}>
