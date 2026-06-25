@@ -152,12 +152,12 @@ export default function StartingSoonOverlay() {
       </div>
 
       {/* ── Corner accents ── */}
-      {[
-        { top: '70px', left: '30px', borderTop: true, borderLeft: true },
-        { top: '70px', right: '30px', borderTop: true, borderRight: true },
-        { bottom: '80px', left: '30px', borderBottom: true, borderLeft: true },
-        { bottom: '80px', right: '30px', borderBottom: true, borderRight: true },
-      ].map((pos, i) => (
+      {([
+        { pos: { top: '70px',    left:  '30px' }, t: true,  b: false, l: true,  r: false },
+        { pos: { top: '70px',    right: '30px' }, t: true,  b: false, l: false, r: true  },
+        { pos: { bottom: '80px', left:  '30px' }, t: false, b: true,  l: true,  r: false },
+        { pos: { bottom: '80px', right: '30px' }, t: false, b: true,  l: false, r: true  },
+      ] as const).map(({ pos, t, b, l, r }, i) => (
         <div
           key={i}
           style={{
@@ -165,10 +165,10 @@ export default function StartingSoonOverlay() {
             width: '44px',
             height: '44px',
             ...pos,
-            borderTopWidth: pos.borderTop ? '3px' : 0,
-            borderBottomWidth: pos.borderBottom ? '3px' : 0,
-            borderLeftWidth: pos.borderLeft ? '3px' : 0,
-            borderRightWidth: pos.borderRight ? '3px' : 0,
+            borderTopWidth:    t ? '3px' : 0,
+            borderBottomWidth: b ? '3px' : 0,
+            borderLeftWidth:   l ? '3px' : 0,
+            borderRightWidth:  r ? '3px' : 0,
             borderStyle: 'solid',
             borderColor: 'rgba(255,188,15,0.35)',
             zIndex: 1,

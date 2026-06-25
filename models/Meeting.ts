@@ -13,6 +13,7 @@ export interface IMeeting extends Document {
   organization: string
   agendaItems: AgendaItem[]
   isActive: boolean
+  execSessionImageUrl: string
   createdAt: Date
   updatedAt: Date
 }
